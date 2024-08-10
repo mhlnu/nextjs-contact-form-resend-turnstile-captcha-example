@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react"
 import Head from "next/head";
 
-const turnstileKey = process.env.NEXT_PUBLIC_TURNSTILE_KEY // this may not always work, but I'm using this as an example of how you can store it
+const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITEKEY // this may not always work, but I'm using this as an example of how you can store it
 
 const Contact = props => {
     const router = useRouter();
@@ -22,7 +22,7 @@ const Contact = props => {
                 document.getElementById("turnstile-container")
             ) {
                 window.turnstile.render("#turnstile-container", {
-                    sitekey: turnstileKey,
+                    sitekey: turnstileSiteKey,
                     callback: function (token) {
                         setForm(prevForm => ({ ...prevForm, turnstileToken: token }));
                     },
